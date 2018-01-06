@@ -1,0 +1,33 @@
+
+<p>
+  heroes works!
+
+
+  @{{hero.name}}@
+
+
+  @{{hero.id}}@
+
+</p>
+
+
+<div>
+  <label>name:
+    <input [(ngModel)]="hero.name" placeholder="name">
+  </label>
+</div>
+
+======================================================
+
+
+<h2>My Heroes</h2>
+123123123
+<ul class="heroes">
+  <li *ngFor="let hero of hero_list" (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+
+======================================================
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
