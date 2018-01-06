@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Hero} from '../hero';
 import {HEROES} from '../nock-herores';
+import {HeroService} from '../hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -23,7 +24,7 @@ export class HeroesComponent implements OnInit {
 
    // hero: Hero;
 
-  constructor() {
+  constructor(public heroService: HeroService) {
    /* // 관리가 ...;;;
     this.hero = new Hero();
 
@@ -33,8 +34,19 @@ export class HeroesComponent implements OnInit {
 
   }
 
+/*
   ngOnInit() {
+    this.hero_list = this.heroService.getHeroes()
+      .then(data => this.hero_list = data);
   }
+*/
+
+  ngOnInit() {
+    this.heroService.getHeroes()
+      .subscribe(data => this.hero_list = data);
+  }
+
+
 
   onSelect(hero: Hero) {
     console.log(hero);
